@@ -8,7 +8,7 @@ import java.util.List;
  * 
  * @author iohack
  * @version 1.0.0
- * @since JDK1.6
+ * @since JDK1.2
  */
 public class IndexSearcher {
 
