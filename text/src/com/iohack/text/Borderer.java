@@ -26,14 +26,14 @@ public class Borderer implements Serializable {
 	/**
 	 * Border char.
 	 */
-	private char fillChar;
+	private char borderChar;
 	
 	/**
 	 * Unique constructor.
 	 */
 	public Borderer(){
 		str = "";
-		fillChar = '#';
+		borderChar = '#';
 	}
 	
 	/**
@@ -43,10 +43,10 @@ public class Borderer implements Serializable {
 	public List<String> border(){
 		List<String> rendering = new ArrayList<String>(3);
 		char [] chars = new char[str.length() + 2];
-		Arrays.fill(chars, fillChar);
+		Arrays.fill(chars, borderChar);
 		String strH = String.valueOf(chars);
 		rendering.add(strH);
-		rendering.add(fillChar + str + fillChar);
+		rendering.add(borderChar + str + borderChar);
 		rendering.add(strH);		
 		return rendering;
 	}
@@ -65,17 +65,13 @@ public class Borderer implements Serializable {
 		str = text;
 	}
 
-	/**
-	 * @return Border char.
-	 */
-	public char getFillChar() {
-		return fillChar;
+	public char getBorderChar() {
+		return borderChar;
 	}
 
-	/**
-	 * @param fillChar Border char.
-	 */
-	public void setFillChar(char fillChar) {
-		this.fillChar = fillChar;
+	public void setBorderChar(char borderChar) {
+		this.borderChar = borderChar;
 	}
+	
+	
 }
