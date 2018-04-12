@@ -6,9 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A text borderer.<br>
+ * Text borderer.<br>
  * 
- * @author Iohack version 1.3.0
+ * @author Iohack 
+ * @version 1.3.0
  * @since JDK1.2
  */
 public class Borderer implements Serializable {
@@ -52,10 +53,13 @@ public class Borderer implements Serializable {
 	 */
 	private char borderChar;
 
+	/**
+	 * Padding configuration.
+	 */
 	private int[] padding;
 
 	/**
-	 * Unique constructor.
+	 * Build a basic text borderer with default configuration.
 	 */
 	public Borderer() {
 		lines = new ArrayList<String>(3);
@@ -161,7 +165,7 @@ public class Borderer implements Serializable {
 	}
 
 	/**
-	 * Set lines (1) from a single string.
+	 * Set text from a single line string.
 	 * 
 	 * @param text
 	 *            Text.
@@ -215,7 +219,6 @@ public class Borderer implements Serializable {
 	 * <li>PADDING_LEFT</li>
 	 * <li>PADDING_RIGHT</li>
 	 * </ol>
-	 * *
 	 * 
 	 * @param paddingType
 	 *            Padding type.
