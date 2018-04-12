@@ -10,7 +10,7 @@ import com.iohack.text.Borderer;
 /**
  * Test cases for class {@link com.iohack.text.Borderer}
  * @author Iohack
- * version 1.3.0
+ * version 1.4.0
  * @since JDK1.2
  */
 public class BordererTest {
@@ -81,4 +81,27 @@ public class BordererTest {
 			System.out.println(line);
 		}
 	}
+	
+	/**
+	 * Test method for {@link com.iohack.text.Borderer#border()}.
+	 */
+	@Test
+	public void testPerformande() {
+		System.out.println("\nTesting borderer performances :");
+		Borderer borderer = new Borderer();
+		List<String> inLines = new ArrayList<String>(3);
+		inLines.add("a line");
+		inLines.add("a second line");
+		inLines.add("a third very very long line !");		
+		borderer.setLines(inLines);
+		borderer.setPadding(Borderer.PADDING_TOP, 0);
+		borderer.setPadding(Borderer.PADDING_BOTTOM, 1);
+		borderer.setPadding(Borderer.PADDING_LEFT, 2);
+		borderer.setPadding(Borderer.PADDING_RIGHT, 3);
+		long t1 = System.currentTimeMillis();
+		for(int i=0; i<100000000;i++){
+			borderer.border();
+		}
+		System.out.println("Performance result : " + (System.currentTimeMillis() - t1));
+	}	
 }

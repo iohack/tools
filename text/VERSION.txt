@@ -1,7 +1,11 @@
-Version 1.3.1
+Version 1.3.2
 
-1. Borderer (package com.iohack.text)
+1. BordererTest (package com.iohack.text.tests)
 
-	Javadoc correction. 
+	Added performance test.
+	
+2. Borderer
+
+	Performance : 41156 -> 40053 
 	
 	

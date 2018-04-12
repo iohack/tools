@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Text borderer.<br>
  * 
- * @author Iohack 
+ * @author Iohack
  * @version 1.3.0
  * @since JDK1.2
  */
@@ -59,6 +59,11 @@ public class Borderer implements Serializable {
 	private int[] padding;
 
 	/**
+	 * Rendering line length.
+	 */
+	private int renderingLineLength;
+
+	/**
 	 * Build a basic text borderer with default configuration.
 	 */
 	public Borderer() {
@@ -66,6 +71,7 @@ public class Borderer implements Serializable {
 		borderChar = '#';
 		maxLineLength = 0;
 		padding = new int[4];
+		renderingLineLength = 2;
 	}
 
 	/**
@@ -79,7 +85,7 @@ public class Borderer implements Serializable {
 				+ padding[0] + padding[1]);
 
 		// Horizontal (top and bottom) borders
-		char[] chars = new char[maxLineLength + 2 + padding[2] + padding[3]];
+		char[] chars = new char[renderingLineLength];
 		Arrays.fill(chars, borderChar);
 		String strH = String.valueOf(chars);
 
@@ -87,8 +93,7 @@ public class Borderer implements Serializable {
 		rendering.add(strH);
 
 		// Horizontal padding (top and bottom)
-		char[] charsPaddedH = new char[maxLineLength + 2 + padding[2]
-				+ padding[3]];
+		char[] charsPaddedH = new char[renderingLineLength];
 		Arrays.fill(charsPaddedH, ' ');
 		charsPaddedH[0] = borderChar;
 		charsPaddedH[charsPaddedH.length - 1] = borderChar;
@@ -186,6 +191,7 @@ public class Borderer implements Serializable {
 				maxLineLength = line.length();
 			}
 		}
+		updateRenderingLineLength();
 	}
 
 	/**
@@ -231,5 +237,15 @@ public class Borderer implements Serializable {
 					"Padding type unknown. Use PADDING_TOP, PADDING_BOTTOM, PADDING_LEFT or PADDING_RIGHT.");
 		}
 		padding[paddingType] = value;
+		if (paddingType == 2 || paddingType == 3) {
+			updateRenderingLineLength();
+		}
+	}
+
+	/**
+	 * Update rendering line size attribute.
+	 */
+	private void updateRenderingLineLength() {
+		renderingLineLength = maxLineLength + 2 + padding[2] + padding[3];
 	}
 }
