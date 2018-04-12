@@ -1,0 +1,7 @@
+Version 1.2.0
+
+1. Borderer (package com.iohack.text)
+
+	Now text to border can be multiple line text.
+	
+	
