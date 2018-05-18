@@ -10,7 +10,7 @@ import com.iohack.text.Borderer;
 /**
  * Test cases for class {@link com.iohack.text.Borderer}
  * @author Iohack
- * version 1.4.0
+ * @version 1.4.0
  * @since JDK1.2
  */
 public class BordererTest {
